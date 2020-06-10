@@ -1,0 +1,64 @@
+1 创建数据库
+	create database `management`;
+	use management;
+2 建表	
+创建用户
+   create table `users` (
+    id int primary key auto_increment,
+	`ctime` timestamp default current_timestamp,
+	account varchar(100),
+	password varchar(100),
+	userGroup varchar(50)
+   );
+
+订单
+create table `orders` (
+  id int primary key auto_increment,
+  orderNo text,
+  orderTime timestamp,
+  phone text,
+  consignee VARCHAR(50),
+  deliverAddress text,
+  deliveryTime timestamp,
+  remarks text,
+  orderAmount float(10, 2),
+  orderState varchar(10)
+);
+
+员工
+create table `personal` (
+  id int PRIMARY key auto_increment,
+  personalname varchar(32),
+  class varchar(30),
+  `ctime` timestamp default current_timestamp
+
+);
+
+仓库
+create table `goods` (
+  id int PRIMARY KEY auto_increment,
+  coding varchar(100),
+  `ctime` timestamp default current_timestamp,
+  goodsname varchar(100),
+  goodscategory varchar(100),
+  imgUrl text,
+  goodsdesc text,
+  goodsquantity varchar(100)
+)
+入库数据
+create table `arrivestore` (
+	
+  goodscoding varchar(100),
+  `ctime` timestamp default current_timestamp,
+  goodsname varchar(100),
+  goodscategory varchar(100),
+  imgUrl text,
+  goodsdesc text,
+  goodsquantity varchar(100)
+)
+出库数据
+create table `leavestore` (
+  `ctime` timestamp default current_timestamp,
+  goodsname varchar(100),
+  leavequantity varchar(100)
+)
